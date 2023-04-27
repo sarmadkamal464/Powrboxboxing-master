@@ -18,7 +18,7 @@ module.exports = {
   //   content: ["./pages/**/*.tsx", "./components/**/*.tsx"],
   //   // These options are passed through directly to PurgeCSS
   // },
-  purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./Components/**/*.{js,ts,jsx,tsx}"],
+  purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       backgroundImage: (theme) => ({
