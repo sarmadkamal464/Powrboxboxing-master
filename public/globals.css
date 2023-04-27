@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Pirate Ship';
+    src: url('/fonts/pirate-ship.ttf') ;
+    font-weight: normal;
+    font-style: normal;
+  }
+  *{
+    font-family: 'Pirate Ship', sans-serif;
+  }
+
+  body {
+    font-family: 'Pirate', sans-serif;
+  }  
+  .hamburger-inner{
+    background-color: white;
+  }
+  .hamburger-inner::before{
+    background-color: white;
+  }
+  .hamburger-inner::after {
+    background-color: white;
+  }
+  .hamburger--elastic.is-active .hamburger-inner,
+  .hamburger--elastic.is-active .hamburger-inner::before,
+  .hamburger--elastic.is-active .hamburger-inner::after {
+    background-color: white;
+  }
+  .hamburger:hover {
+    background-color: none;
+  }
+  

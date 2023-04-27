@@ -1,0 +1,41 @@
+{
+  "engines": {
+    "node": "16.x"
+  },
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.4.0",
+    "@heroicons/react": "^1.0.4",
+    "@nextui-org/react": "^1.0.0-beta.12",
+    "@shopify/hydrogen": "^2023.1.7",
+    "axios": "^0.25.0",
+    "formik": "^2.2.9",
+    "hamburgers": "^1.2.1",
+    "next": "^11.1.0",
+    "primeicons": "^6.0.1",
+    "primereact": "^9.2.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-dropdown": "^1.11.0",
+    "react-loader-spinner": "^5.3.4",
+    "react-responsive-carousel": "^3.2.23",
+    "react-scripts": "^5.0.1",
+    "react-select": "^5.7.2",
+    "react-select-country-list": "^2.2.3",
+    "sass": "^1.38.2",
+    "sharp": "^0.32.0",
+    "shopify-buy": "^2.19.0",
+    "swiper": "^6.7.5",
+    "swr": "^1.2.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.6",
+    "postcss": "^8.3.5",
+    "tailwindcss": "^2.2.4"
+  }
+}
