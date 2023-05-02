@@ -31,33 +31,33 @@ const collapsedMenu = ({ menuItems }) => {
         <span className="hamburger-box transform scale-50">
           <span className="hamburger-inner"></span>
         </span>
-
-        <div
-          className={`${isOpen ? "flex" : "hidden"} absolute bg-black flex-col`}
-        >
-          {menuItems?.map((item, index) => (
-            <div key={item.title}>
-              <span
-                className="text-white font-medium py-2"
-                onClick={() => toggleDropdown(index)}
-              >
-                {item.title}
-              </span>
-              <div className="flex flex-col border-2 rounded border-red-600">
-                {isMenuOpen[index] &&
-                  item.items.map((subItem) => (
-                    <a
-                      key={subItem.title}
-                      className="text-gray-200 py-2 text-sm hover:text-blue-500"
-                    >
-                      {subItem.title}
-                    </a>
-                  ))}
-              </div>
-            </div>
-          ))}
-        </div>
       </button>
+
+      <div
+        className={`${isOpen ? "flex" : "hidden"} absolute bg-black flex-col`}
+      >
+        {menuItems?.map((item, index) => (
+          <div key={item.title}>
+            <span
+              className="text-white font-medium py-2"
+              onClick={() => toggleDropdown(index)}
+            >
+              {item.title}
+            </span>
+            <div className="flex flex-col border-2 rounded border-red-600">
+              {isMenuOpen[index] &&
+                item.items.map((subItem) => (
+                  <a
+                    key={subItem.title}
+                    className="text-gray-200 py-2 text-sm hover:text-blue-500"
+                  >
+                    {subItem.title}
+                  </a>
+                ))}
+            </div>
+          </div>
+        ))}
+      </div>
     </nav>
   );
 };

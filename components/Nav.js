@@ -11,6 +11,7 @@ import DropDownComponent from "./DropdownComponent";
 
 export default function Nav() {
   const dropdownRef = useRef(null);
+  const searchRef = useRef(null);
   const [menuItems, setMenuItems] = useState([]);
   const [searchResult, setSearchResult] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -45,6 +46,30 @@ export default function Nav() {
   const myLoader = ({ src, width, quality }) => {
     return `https://cdn.shopify.com/s/files/1/0275/5883/8385/files/POWRBOX_BOXING__established_2019w_900655ca-6318-4c55-883b-1688d63498ec.png?v=1667115838`;
   };
+
+  useEffect(() => {
+    // add event listeners
+    document.addEventListener("keydown", handleEscapeKey);
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      // remove event listeners
+      document.removeEventListener("keydown", handleEscapeKey);
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
+  function handleEscapeKey(event) {
+    if (event.key === "Escape") {
+      setIsOpen(false);
+    }
+  }
+
+  function handleClickOutside(event) {
+    if (searchRef.current && !searchRef.current.contains(event.target)) {
+      setIsOpen(false);
+    }
+  }
 
   useEffect(() => {
     const handleDocumentClick = (event) => {
@@ -96,7 +121,10 @@ export default function Nav() {
           />
         </Link>
 
-        <div className="w-1/3 absolute md:relative right-32 md:right-0 text-white hover:text-gray-900 border-red-500 border-2 px-2 py-1 ">
+        <div
+          ref={searchRef}
+          className="w-1/3 absolute md:relative right-32 md:right-0 text-white hover:text-gray-900 border-red-500 border-2 px-2 py-1 "
+        >
           <input
             type="text"
             name="search"
@@ -133,6 +161,7 @@ export default function Nav() {
                   <div
                     className="flex flex-row items-center cursor-pointer bg-black hover:bg-gray-900"
                     key={data?.node?.id}
+                    onClick={searchToggle}
                   >
                     <Image
                       src={data?.node?.images?.edges[0]?.node?.url}

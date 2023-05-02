@@ -1,4 +1,4 @@
-import { getCollection, getProductsInCollection } from "../lib/shopify";
+import { getCollection } from "../lib/shopify";
 import Hero from "../components/Hero";
 import Head from "next/head";
 import FeaturedCollection from "../components/FeaturedCollection";
@@ -36,16 +36,16 @@ export default function Home({ bestSellers, unstoppable, exile, products }) {
         <meta property="og:site_name" content="Modern eCommerce Course" />
       </Head>
       <Hero />
+      <ProductList products={products} />
       <BestSeller bestSellers={bestSellers} />
       <FeaturedCollection exile={exile} unstoppable={unstoppable} />
       <FeaturedProducts />
-      <ProductList products={products} />
     </div>
   );
 }
 
 export async function getStaticProps() {
-  const products = await getProductsInCollection("frontpage");
+  const products = await getCollection("frontpage");
   const exile = await getCollection("exile-series");
   const unstoppable = await getCollection("unstoppable-series");
   const bestSellers = await getCollection("our-best-sellers");
